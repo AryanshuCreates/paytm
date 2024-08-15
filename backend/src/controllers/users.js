@@ -1,10 +1,8 @@
-import { Express } from "express";
-import db from "../db/index.js";
 import mongoose from "mongoose";
 import User from "../schemas/schema.js";
 import bcrypt from "bcrypt";
 
-const Signup = async (req, res, next) => {
+const signup = async (req, res, next) => {
   const { firstName, lastName, email, password } = req.body;
   try {
     if (
@@ -37,7 +35,7 @@ const Signup = async (req, res, next) => {
   }
 };
 
-const Signin = async (req, res, next) => {
+const signin = async (req, res, next) => {
   const { email, password } = req.body;
   try {
     if (!email.trim() && !password.trim()) {
@@ -56,4 +54,4 @@ const Signin = async (req, res, next) => {
   }
 };
 
-export { Signup, Signin };
+export { signup, signin };
